@@ -1,0 +1,36 @@
+
+$standardFont: sans-serif;
+$title-color: #111;
+$navBar-color: #550202;
+
+.App {
+  font-family: $standardFont;
+  text-align: center;
+  color: #eee;
+    h1 {
+        background: $title-color;
+        margin:0;
+    }
+    nav {
+        background:$navBar-color;
+        display: flex;
+        a{
+            text-decoration: none;
+            color:inherit;
+        }
+        a:hover {
+            background: #111;
+        }
+        li {
+            list-style: none;
+            margin:0 5px 0 0;
+        }
+    }
+    label {
+        color:#111
+    }
+    textarea {
+        flex: 1 1;
+        height: 3rem;   
+    }
+}
