@@ -7,8 +7,8 @@ RESTY app using react to make requests
 
 ### Links and Resources
 
-- [submission PR]()
-- [ci/cd]() (GitHub Actions)
+- [submission PR](https://github.com/brendon-401-advanced-javascript/resty/pull/1)
+- [ci/cd](https://github.com/brendon-401-advanced-javascript/resty/actions) (GitHub Actions)
 - [back-end server url](http://xyz.com) (when applicable)
 - [front-end application](http://xyz.com) (when applicable)
 
