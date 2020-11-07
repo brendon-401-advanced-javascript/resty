@@ -3,7 +3,7 @@ RESTY app using react to make requests
 
 ## Project: RESTy
 
-### Author: Brendon
+### Author: 
 
 ### Links and Resources
 

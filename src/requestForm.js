@@ -1,5 +1,6 @@
 import React from 'react';
 import superagent from 'superagent';
+import ReactJson from 'react-json-view';
 
 class Form extends React.Component {
     constructor(props) {
@@ -8,7 +9,8 @@ class Form extends React.Component {
         request: "",
         textArea: "",
         url: "",
-        results:[]
+        headers:[],
+        response:[],
       };
     }
   
@@ -21,16 +23,17 @@ class Form extends React.Component {
   
     handleSubmit = async (event) => {
       event.preventDefault();
-      console.log(this.state);
       const textArea = `${this.state.request} ${this.state.url}`;
       this.setState({textArea});
       const response = await superagent[this.state.request](this.state.url)
-      const results = response.body.results || [];
-      console.log(results);
-      this.setState([results]);
+      const results = response.body || [];
+      const headers = response.headers || [];
+      this.setState({response:results});
+      this.setState({headers:headers});
       console.log(this.state);
-      
-    };
+    }
+
+    
 
   
     render() {
@@ -80,16 +83,15 @@ class Form extends React.Component {
   
             <textarea value={this.state.textArea}>
             </textarea>
+            <section className='Response'>
+              <h2>Headers</h2>
+              <ReactJson src={this.state.headers}/>
+              <h2>Body</h2>
+              <ReactJson src={this.state.response}/>
+            </section>
           
-            <ul className='Results'>
-                {
-                    this.state.results.map((result, index) => {
-                        return <li key={Math.random()}>{result}</li>
-                    })
-                }
-            </ul>
+            
           </form>
-
       )}
   }
   

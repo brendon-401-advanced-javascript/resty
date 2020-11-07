@@ -18,7 +18,6 @@ class App extends React.Component {
           <a href="#"><li>Help</li></a>
         </nav>
         <Form/>
-        {/* <Pokemon/> */}
       </div>
     );
   }
