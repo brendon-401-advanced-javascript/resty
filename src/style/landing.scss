@@ -3,10 +3,10 @@ $standardFont: sans-serif;
 $title-color: #111;
 $navBar-color: #550202;
 
-.App {
+.App{
   font-family: $standardFont;
   text-align: center;
-  color: #eee;
+  
     h1 {
         background: $title-color;
         margin:0;
@@ -21,9 +21,12 @@ $navBar-color: #550202;
         a:hover {
             background: #111;
         }
+
+
         li {
             list-style: none;
             margin:0 5px 0 0;
+            color: #eee;
         }
     }
     label {
@@ -33,4 +36,8 @@ $navBar-color: #550202;
         flex: 1 1;
         height: 3rem;   
     }
+}
+
+.Pokemon {
+    list-style: none;
 }
