@@ -6,6 +6,7 @@ class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        fetching: false,
         request: "",
         textArea: "",
         url: "",
@@ -17,7 +18,7 @@ class Form extends React.Component {
     handleEventChange = (event) => {
       const restMethod = event.target.name;
       const requestValue = event.target.value;
-      console.log(restMethod, requestValue);
+      // console.log(restMethod, requestValue);
       this.setState({ [restMethod]: requestValue });
     }
   
@@ -25,12 +26,12 @@ class Form extends React.Component {
       event.preventDefault();
       const textArea = `${this.state.request} ${this.state.url}`;
       this.setState({textArea});
-      const response = await superagent[this.state.request](this.state.url)
+      const response = await superagent[this.state.request](this.state.url);
       const results = response.body || [];
       const headers = response.headers || [];
-      this.setState({response:results});
-      this.setState({headers:headers});
-      console.log(this.state);
+      this.setState({response:results, headers:headers, fetching:false});
+      // this.setState({headers:headers});
+      // console.log(this.state);
     }
 
     
@@ -83,6 +84,8 @@ class Form extends React.Component {
   
             <textarea value={this.state.textArea}>
             </textarea>
+              {this.state.fetching ? <div> Just A Sec....</div> : '' }
+
             <section className='Response'>
               <h2>Headers</h2>
               <ReactJson src={this.state.headers}/>
@@ -94,7 +97,7 @@ class Form extends React.Component {
           </form>
       )}
   }
-  
+  // console.log(this);
   export default Form;
 
 
